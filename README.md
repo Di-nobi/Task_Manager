@@ -42,6 +42,7 @@ siris@siris:~$ curl -XGET  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJ
 ### DELETES A TASK
 ```
 siris@siris:~$ curl -XDELETE  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjEzMTg2MCwianRpIjoiNTZmNjBmMTAtMjkzZC00MWI5LWI4MDktZTkxNjdlYzY0NjZkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImQ2MzM2NmQxLTU1OTAtNDBmNi04M2UyLWZiMGQ2NTBkMWFkNyIsIm5iZiI6MTcxNjEzMTg2MCwiY3NyZiI6IjcwODM2N2FmLTRjYzItNDMzZi1iZjM0LWY1YzI4NjJlOGIwNyIsImV4cCI6MTcxNjEzMjc2MH0.QrqNxWdzUSA8s_o7qGEuDt_Z8u_ORde48BOMq0MDXak" http://0.0.0.0:5000/api/v1/tasks/17
+{"message":"Task deleted successfully"}
 ```
 P/S - Please create a user and log in to be able to use the jwt and work on the tasks
 
