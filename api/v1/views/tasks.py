@@ -3,7 +3,7 @@ from database import store
 from api.v1.views import app_look
 from flask import jsonify, abort, request
 from flasgger.utils import swag_from
-
+from flask_socketio import emit
 @app_look.route('/tasks', methods=['GET'], strict_slashes=False)
 @swag_from({
     'tags': ['Tasks'],
@@ -265,6 +265,9 @@ def create_task():
         'message': 'Task successfully created',
         'task_id': tasks.id
     }
+
+    from api.v1.app import socketio
+    socketio.emit('task_created', {'task': tasks.to_dict()}, to='/')
     return jsonify(response), 200
 
 @app_look.route('/tasks/<task_id>/', methods=['PUT'], strict_slashes=False)
@@ -405,6 +408,9 @@ def update_info(task_id):
         'due_date': get_task.due_date
 
     }
+
+    from api.v1.app import socketio
+    socketio.emit('task_updated', {'task': get_task.to_dict()}, to='/')
     return jsonify(response), 200
 
 @app_look.route('/tasks/<task_id>', methods=['DELETE'], strict_slashes=False)
@@ -464,4 +470,6 @@ def del_task(task_id):
         return jsonify({'message': 'Task doesnt exist'}), 401
     store.delete(get_task)
     store.save()
+    from api.v1.app import socketio
+    socketio.emit('task_deleted', {'task_id': task_id}, to='/')
     return jsonify({'message': 'Task deleted successfully'}), 200

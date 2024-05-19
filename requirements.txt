@@ -6,3 +6,4 @@ flask_cors
 flask_jwt_extended
 psycopg2
 postgres
+flask-socketio

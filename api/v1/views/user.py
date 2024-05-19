@@ -3,6 +3,7 @@ from api.v1.views import app_look
 from database import store
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from flasgger.utils import swag_from
+from flask_socketio import emit
 
 @app_look.route('/register', methods=['POST'], strict_slashes=False)
 @swag_from({
@@ -79,6 +80,8 @@ def register_user():
         'jwt': access_token,
         'id': new_user.id
     }
+    from api.v1.app import socketio
+    socketio.emit('registration_response', {'jwt': access_token}, to='/')
     return jsonify(response), 200
 
 
@@ -148,4 +151,6 @@ def login():
         'message': 'Successfully logged in',
         'jwt': access_token,
     }
+    from api.v1.app import socketio
+    socketio.emit('Logged_in', {'jwt': access_token}, to='/')
     return jsonify(response), 200
