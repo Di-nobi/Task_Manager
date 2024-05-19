@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 import uuid
 from datetime import datetime
 class Tasks(Base):
+    """Task Class Table"""
     __tablename__ = 'tasks'
     id = Column(Integer, primary_key=True, nullable=False)
     subject = Column(String(128), nullable=False)

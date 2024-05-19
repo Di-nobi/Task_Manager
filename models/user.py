@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 import uuid
 import bcrypt
 class User(Base):
+    """User class table"""
     __tablename__ = 'user'
     id = Column(String(128), primary_key=True, nullable=False)
     email = Column(String(128), nullable=False)
