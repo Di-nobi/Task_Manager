@@ -16,7 +16,7 @@ class database:
         """
         Initializes the database engine and creates all tables.
 
-        This constructor creates a SQLAlchemy engine for the PostgreSQL database
+        This constructor creates a SQLAlchemy engine for the SQL LITE database
         using the provided connection string. It also creates all tables defined
         in the metadata.
         """
