@@ -20,7 +20,7 @@ class database:
         using the provided connection string. It also creates all tables defined
         in the metadata.
         """
-        self.__engine = create_engine("postgresql+psycopg2://dwayne:Dinobi_1122@localhost:5432/niyo", echo=False)
+        self.__engine = create_engine("sqlite:///a.db", echo=False)
         Base.metadata.create_all(self.__engine)
         # self.__session = None
     def begin_session(self):
