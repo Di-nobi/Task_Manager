@@ -8,7 +8,7 @@ class database:
     """
     Defines the SQL database ORM.
 
-    This class handles the connection to a PostgreSQL database using SQLAlchemy.
+    This class handles the connection to a SQL LITE database using SQLAlchemy.
     It sets up the engine and metadata for the ORM and provides methods to
     start a session and save changes to the database.
     """
